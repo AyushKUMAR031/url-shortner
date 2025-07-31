@@ -20,13 +20,7 @@ async function handleGenerateNewShortURL(req,res) {
         createdBy: req.user._id, // Attach the user ID of the logged-in user
     });
 
-    // return res.json({
-    //     shortId: shortId,
-    // }); this is returning the shortid in json, but we want a ui view
-
-    return res.render('home',{
-        id: shortId,
-    })
+    return res.redirect(`/?new=${shortId}`);
 }
 
 async function handleGetAnalytics(req, res) {

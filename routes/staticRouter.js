@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     return res.render('home',{
         urls: allurls,
         user: req.user,
+        id: req.query.new,
     });
 });
 
