@@ -14,8 +14,10 @@ const cookieParser = require('cookie-parser');
 
 //DB
 const connectDB = require('./connect');
-connectDB('mongodb://localhost:27017/url-shortner')
-.then(()=>console.log('Connected to MongoDB'));
+connectDB(process.env.MONGO_URL)
+.then(()=>console.log('Connected to MongoDB'))
+.catch((err)=>console.error('MongoDB connection error:',err));
+
 
 
 // View Engine
