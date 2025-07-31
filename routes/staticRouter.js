@@ -4,12 +4,12 @@ const URL = require('../models/urlScheme');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    if(!req.user) return res.redirect('/landing'); // guest (not logged in)
+    if(!req.user) return res.redirect('/landing'); 
 
-    const allurls = await URL.find({ createdBy: req.user._id }); // Fetch URLs created by the logged-in user
-    // Render the home page
+    const allurls = await URL.find({ createdBy: req.user._id });
     return res.render('home',{
         urls: allurls,
+        user: req.user,
     });
 });
 

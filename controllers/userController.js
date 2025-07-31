@@ -48,7 +48,13 @@ async function handleUserLogin(req,res){
     //return res.json({token}); // for testing purposes, we return the token as JSON
 }
 
+async function handleLogout(req, res) {
+    res.clearCookie('uid');
+    return res.redirect('/landing');
+}
+
 module.exports = {
     handleSignup,
     handleUserLogin,
+    handleLogout,
 };

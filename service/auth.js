@@ -13,6 +13,7 @@ function setUser(user){
     const payload = {
         _id: user._id,
         email: user.email,
+        name: user.name,
     };
     return jwt.sign(payload, secret, {
         expiresIn: '1h', // Token will expire in 1 hour
